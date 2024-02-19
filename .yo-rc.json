@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "authenticationType": "jwt",
+    "baseName": "Tkisd",
+    "buildTool": "gradle",
+    "clientFramework": "react",
+    "enableTranslation": true,
+    "entities": ["Category", "Courses", "Orders", "Instructor"],
+    "jhipsterVersion": "8.1.0",
+    "jwtSecretKey": "N2Y1M2I2NDJkMzEzOGRlN2Y5ZWJmODRjOGY4ZjEyZWJhZWMwN2NkZDQ0MWM0NzNiZDc2NDI5MzM2Mjk5ZDE4NDhkNzc0MTMyMjBlMWE1YTk2MjcwZGVlZmI0MTBlZGFkMjI5MmE0OGMxZmRiNTdhZTJmYzA2NGMzZDI2MDk3MjM=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1708112671000,
+    "nativeLanguage": "en",
+    "packageFolder": "com/project/tkisd",
+    "packageName": "com.project.tkisd",
+    "prodDatabaseType": "mysql",
+    "skipClient": true
+  }
+}

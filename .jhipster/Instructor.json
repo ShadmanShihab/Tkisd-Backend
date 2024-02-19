@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240216194431"
+  },
+  "applications": ["Tkisd"],
+  "entityTableName": "instructor",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "instructorName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "grade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Instructor",
+  "relationships": [],
+  "searchEngine": "no"
+}

@@ -1,0 +1,58 @@
+application {
+  config {
+    baseName Tkisd
+    packageName  com.project.tkisd
+    authenticationType jwt
+    prodDatabaseType mysql
+    buildTool gradle
+    clientFramework react
+    enableTranslation true
+    nativeLanguage en
+  }
+  entities *
+}
+
+entity Category {
+	id Long
+    categoryName String required
+}
+
+entity Courses {
+	id Long
+	courseName String required
+    description String required
+    price Double required
+	numberOfClasses Long required
+    totalDuration Long required
+}
+
+entity Orders {
+	id Long
+    amount Double required
+    trxType TrxType required
+    userId Long
+}
+
+enum TrxType {
+    BKASH, CASH
+}
+
+entity Instructor {
+	id Long
+	instructorName String required
+    description String
+    address String
+    phoneNo String
+    grade Integer
+    userId Long
+}
+
+
+relationship ManyToOne {
+	Courses{categoryId} to Category
+}
+
+relationship OneToOne {
+	Orders{courseId} to Courses
+}
+
