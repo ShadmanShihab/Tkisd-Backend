@@ -1,3 +1,5 @@
+
+/*
 application {
   config {
     baseName Tkisd
@@ -11,10 +13,12 @@ application {
   }
   entities *
 }
+*/
 
 entity Category {
 	id Long
     categoryName String required
+    domainStatus Integer required
 }
 
 entity Courses {
@@ -24,6 +28,7 @@ entity Courses {
     price Double required
 	numberOfClasses Long required
     totalDuration Long required
+    domainStatus Integer required
 }
 
 entity Orders {
@@ -31,6 +36,7 @@ entity Orders {
     amount Double required
     trxType TrxType required
     userId Long
+    domainStatus Integer required
 }
 
 enum TrxType {
@@ -45,14 +51,16 @@ entity Instructor {
     phoneNo String
     grade Integer
     userId Long
+    domainStatus Integer required
 }
 
 
 relationship ManyToOne {
-	Courses{categoryId} to Category
+	Courses{category(id)} to Category
 }
 
 relationship OneToOne {
-	Orders{courseId} to Courses
+	Orders{course(id)} to Courses
+	Orders{user(id)} to USER
 }
 

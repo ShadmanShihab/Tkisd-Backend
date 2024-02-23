@@ -170,7 +170,7 @@ public class CoursesResource {
             log.debug("REST request to get all Coursess where orders is null");
             return StreamSupport
                 .stream(coursesRepository.findAll().spliterator(), false)
-                .filter(courses -> courses.getOrders() == null)
+//                .filter(courses -> courses.getOrders() == null)
                 .toList();
         }
         log.debug("REST request to get all Courses");

@@ -63,7 +63,8 @@ class OrdersResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Orders createEntity(EntityManager em) {
-        Orders orders = new Orders().amount(DEFAULT_AMOUNT).trxType(DEFAULT_TRX_TYPE).userId(DEFAULT_USER_ID);
+        Orders orders = null;
+        //        Orders orders = new Orders().amount(DEFAULT_AMOUNT).trxType(DEFAULT_TRX_TYPE).user(DEFAULT_USER_ID);
         return orders;
     }
 
@@ -74,8 +75,8 @@ class OrdersResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Orders createUpdatedEntity(EntityManager em) {
-        Orders orders = new Orders().amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).userId(UPDATED_USER_ID);
-        return orders;
+//        Orders orders = new Orders().amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).userId(UPDATED_USER_ID);
+        return null;
     }
 
     @BeforeEach
@@ -98,7 +99,7 @@ class OrdersResourceIT {
         Orders testOrders = ordersList.get(ordersList.size() - 1);
         assertThat(testOrders.getAmount()).isEqualTo(DEFAULT_AMOUNT);
         assertThat(testOrders.getTrxType()).isEqualTo(DEFAULT_TRX_TYPE);
-        assertThat(testOrders.getUserId()).isEqualTo(DEFAULT_USER_ID);
+        assertThat(testOrders.getUser()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -206,7 +207,7 @@ class OrdersResourceIT {
         Orders updatedOrders = ordersRepository.findById(orders.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedOrders are not directly saved in db
         em.detach(updatedOrders);
-        updatedOrders.amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).userId(UPDATED_USER_ID);
+        updatedOrders.amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).user(UPDATED_USER_ID);
 
         restOrdersMockMvc
             .perform(
@@ -222,7 +223,7 @@ class OrdersResourceIT {
         Orders testOrders = ordersList.get(ordersList.size() - 1);
         assertThat(testOrders.getAmount()).isEqualTo(UPDATED_AMOUNT);
         assertThat(testOrders.getTrxType()).isEqualTo(UPDATED_TRX_TYPE);
-        assertThat(testOrders.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testOrders.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test
@@ -293,7 +294,7 @@ class OrdersResourceIT {
         Orders partialUpdatedOrders = new Orders();
         partialUpdatedOrders.setId(orders.getId());
 
-        partialUpdatedOrders.trxType(UPDATED_TRX_TYPE).userId(UPDATED_USER_ID);
+        partialUpdatedOrders.trxType(UPDATED_TRX_TYPE).user(UPDATED_USER_ID);
 
         restOrdersMockMvc
             .perform(
@@ -309,7 +310,7 @@ class OrdersResourceIT {
         Orders testOrders = ordersList.get(ordersList.size() - 1);
         assertThat(testOrders.getAmount()).isEqualTo(DEFAULT_AMOUNT);
         assertThat(testOrders.getTrxType()).isEqualTo(UPDATED_TRX_TYPE);
-        assertThat(testOrders.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testOrders.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test
@@ -324,7 +325,7 @@ class OrdersResourceIT {
         Orders partialUpdatedOrders = new Orders();
         partialUpdatedOrders.setId(orders.getId());
 
-        partialUpdatedOrders.amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).userId(UPDATED_USER_ID);
+        partialUpdatedOrders.amount(UPDATED_AMOUNT).trxType(UPDATED_TRX_TYPE).user(UPDATED_USER_ID);
 
         restOrdersMockMvc
             .perform(
@@ -340,7 +341,7 @@ class OrdersResourceIT {
         Orders testOrders = ordersList.get(ordersList.size() - 1);
         assertThat(testOrders.getAmount()).isEqualTo(UPDATED_AMOUNT);
         assertThat(testOrders.getTrxType()).isEqualTo(UPDATED_TRX_TYPE);
-        assertThat(testOrders.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testOrders.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

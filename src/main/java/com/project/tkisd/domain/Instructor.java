@@ -38,8 +38,10 @@ public class Instructor implements Serializable {
     @Column(name = "grade")
     private Integer grade;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -121,17 +123,17 @@ public class Instructor implements Serializable {
         this.grade = grade;
     }
 
-    public Long getUserId() {
-        return this.userId;
+    public User getUser() {
+        return this.user;
     }
 
-    public Instructor userId(Long userId) {
-        this.setUserId(userId);
+    public Instructor user(User user) {
+        this.setUser(user);
         return this;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -163,7 +165,7 @@ public class Instructor implements Serializable {
             ", address='" + getAddress() + "'" +
             ", phoneNo='" + getPhoneNo() + "'" +
             ", grade=" + getGrade() +
-            ", userId=" + getUserId() +
+            ", userId=" + getUser().getId() +
             "}";
     }
 }

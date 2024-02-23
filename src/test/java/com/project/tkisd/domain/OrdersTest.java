@@ -28,10 +28,10 @@ class OrdersTest {
         Orders orders = getOrdersRandomSampleGenerator();
         Courses coursesBack = getCoursesRandomSampleGenerator();
 
-        orders.setCourseId(coursesBack);
-        assertThat(orders.getCourseId()).isEqualTo(coursesBack);
+        orders.setCourses(coursesBack);
+        assertThat(orders.getCourses()).isEqualTo(coursesBack);
 
         orders.courseId(null);
-        assertThat(orders.getCourseId()).isNull();
+        assertThat(orders.getCourses()).isNull();
     }
 }

@@ -131,8 +131,8 @@ public class OrdersResource {
                 if (orders.getTrxType() != null) {
                     existingOrders.setTrxType(orders.getTrxType());
                 }
-                if (orders.getUserId() != null) {
-                    existingOrders.setUserId(orders.getUserId());
+                if (orders.getUser() != null) {
+                    existingOrders.setUser(orders.getUser());
                 }
 
                 return existingOrders;

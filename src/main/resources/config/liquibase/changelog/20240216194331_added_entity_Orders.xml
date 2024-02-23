@@ -23,8 +23,8 @@
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="course_id_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_orders__course_id_id" />
+            <column name="course_id" type="bigint">
+                <constraints nullable="true" uniqueConstraintName="ux_orders_course_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

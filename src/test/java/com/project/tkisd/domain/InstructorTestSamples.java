@@ -19,7 +19,7 @@ public class InstructorTestSamples {
             .address("address1")
             .phoneNo("phoneNo1")
             .grade(1)
-            .userId(1L);
+            .user(1L);
     }
 
     public static Instructor getInstructorSample2() {
@@ -30,7 +30,7 @@ public class InstructorTestSamples {
             .address("address2")
             .phoneNo("phoneNo2")
             .grade(2)
-            .userId(2L);
+            .user(2L);
     }
 
     public static Instructor getInstructorRandomSampleGenerator() {
@@ -41,6 +41,6 @@ public class InstructorTestSamples {
             .address(UUID.randomUUID().toString())
             .phoneNo(UUID.randomUUID().toString())
             .grade(intCount.incrementAndGet())
-            .userId(longCount.incrementAndGet());
+            .user(longCount.incrementAndGet());
     }
 }

@@ -140,8 +140,8 @@ public class InstructorResource {
                 if (instructor.getGrade() != null) {
                     existingInstructor.setGrade(instructor.getGrade());
                 }
-                if (instructor.getUserId() != null) {
-                    existingInstructor.setUserId(instructor.getUserId());
+                if (instructor.getUser() != null) {
+                    existingInstructor.setUser(instructor.getUser());
                 }
 
                 return existingInstructor;

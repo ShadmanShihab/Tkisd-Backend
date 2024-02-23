@@ -77,7 +77,7 @@ class InstructorResourceIT {
             .address(DEFAULT_ADDRESS)
             .phoneNo(DEFAULT_PHONE_NO)
             .grade(DEFAULT_GRADE)
-            .userId(DEFAULT_USER_ID);
+            .user(DEFAULT_USER_ID);
         return instructor;
     }
 
@@ -94,7 +94,7 @@ class InstructorResourceIT {
             .address(UPDATED_ADDRESS)
             .phoneNo(UPDATED_PHONE_NO)
             .grade(UPDATED_GRADE)
-            .userId(UPDATED_USER_ID);
+            .user(UPDATED_USER_ID);
         return instructor;
     }
 
@@ -121,7 +121,7 @@ class InstructorResourceIT {
         assertThat(testInstructor.getAddress()).isEqualTo(DEFAULT_ADDRESS);
         assertThat(testInstructor.getPhoneNo()).isEqualTo(DEFAULT_PHONE_NO);
         assertThat(testInstructor.getGrade()).isEqualTo(DEFAULT_GRADE);
-        assertThat(testInstructor.getUserId()).isEqualTo(DEFAULT_USER_ID);
+        assertThat(testInstructor.getUser()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -224,7 +224,7 @@ class InstructorResourceIT {
             .address(UPDATED_ADDRESS)
             .phoneNo(UPDATED_PHONE_NO)
             .grade(UPDATED_GRADE)
-            .userId(UPDATED_USER_ID);
+            .user(UPDATED_USER_ID);
 
         restInstructorMockMvc
             .perform(
@@ -243,7 +243,7 @@ class InstructorResourceIT {
         assertThat(testInstructor.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testInstructor.getPhoneNo()).isEqualTo(UPDATED_PHONE_NO);
         assertThat(testInstructor.getGrade()).isEqualTo(UPDATED_GRADE);
-        assertThat(testInstructor.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testInstructor.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test
@@ -320,7 +320,7 @@ class InstructorResourceIT {
             .address(UPDATED_ADDRESS)
             .phoneNo(UPDATED_PHONE_NO)
             .grade(UPDATED_GRADE)
-            .userId(UPDATED_USER_ID);
+            .user(UPDATED_USER_ID);
 
         restInstructorMockMvc
             .perform(
@@ -339,7 +339,7 @@ class InstructorResourceIT {
         assertThat(testInstructor.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testInstructor.getPhoneNo()).isEqualTo(UPDATED_PHONE_NO);
         assertThat(testInstructor.getGrade()).isEqualTo(UPDATED_GRADE);
-        assertThat(testInstructor.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testInstructor.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test
@@ -360,7 +360,7 @@ class InstructorResourceIT {
             .address(UPDATED_ADDRESS)
             .phoneNo(UPDATED_PHONE_NO)
             .grade(UPDATED_GRADE)
-            .userId(UPDATED_USER_ID);
+            .user(UPDATED_USER_ID);
 
         restInstructorMockMvc
             .perform(
@@ -379,7 +379,7 @@ class InstructorResourceIT {
         assertThat(testInstructor.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testInstructor.getPhoneNo()).isEqualTo(UPDATED_PHONE_NO);
         assertThat(testInstructor.getGrade()).isEqualTo(UPDATED_GRADE);
-        assertThat(testInstructor.getUserId()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testInstructor.getUser()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

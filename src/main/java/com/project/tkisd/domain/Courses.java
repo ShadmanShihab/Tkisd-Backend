@@ -1,6 +1,5 @@
 package com.project.tkisd.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -44,11 +43,8 @@ public class Courses implements Serializable {
     private Long totalDuration;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
-
-    @JsonIgnoreProperties(value = { "courseId" }, allowSetters = true)
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "courseId")
-    private Orders orders;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -134,31 +130,12 @@ public class Courses implements Serializable {
         return this.category;
     }
 
-    public void setCategoryId(Category category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public Courses categoryId(Category category) {
-        this.setCategoryId(category);
-        return this;
-    }
-
-    public Orders getOrders() {
-        return this.orders;
-    }
-
-    public void setOrders(Orders orders) {
-        if (this.orders != null) {
-            this.orders.setCourseId(null);
-        }
-        if (orders != null) {
-            orders.setCourseId(this);
-        }
-        this.orders = orders;
-    }
-
-    public Courses orders(Orders orders) {
-        this.setOrders(orders);
+    public Courses category(Category category) {
+        this.setCategory(category);
         return this;
     }
 

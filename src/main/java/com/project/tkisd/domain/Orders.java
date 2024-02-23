@@ -33,13 +33,14 @@ public class Orders implements Serializable {
     @Column(name = "trx_type", nullable = false)
     private TrxType trxType;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @JsonIgnoreProperties(value = { "courses", "orders" }, allowSetters = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id", referencedColumnName = "id")
+    private Courses courses;
 
-    @JsonIgnoreProperties(value = { "categoryId", "orders" }, allowSetters = true)
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(unique = true)
-    private Courses courseId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -82,29 +83,29 @@ public class Orders implements Serializable {
         this.trxType = trxType;
     }
 
-    public Long getUserId() {
-        return this.userId;
+    public User getUser() {
+        return this.user;
     }
 
-    public Orders userId(Long userId) {
-        this.setUserId(userId);
+    public Orders user(User user) {
+        this.setUser(user);
         return this;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Courses getCourseId() {
-        return this.courseId;
+    public Courses getCourses() {
+        return this.courses;
     }
 
-    public void setCourseId(Courses courses) {
-        this.courseId = courses;
+    public void setCourses(Courses courses) {
+        this.courses = courses;
     }
 
     public Orders courseId(Courses courses) {
-        this.setCourseId(courses);
+        this.setCourses(courses);
         return this;
     }
 
@@ -134,7 +135,7 @@ public class Orders implements Serializable {
             "id=" + getId() +
             ", amount=" + getAmount() +
             ", trxType='" + getTrxType() + "'" +
-            ", userId=" + getUserId() +
+            ", userId=" + getUser().getId() +
             "}";
     }
 }

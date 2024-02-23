@@ -2,7 +2,6 @@ package com.project.tkisd.domain;
 
 import static com.project.tkisd.domain.CategoryTestSamples.*;
 import static com.project.tkisd.domain.CoursesTestSamples.*;
-import static com.project.tkisd.domain.OrdersTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.project.tkisd.web.rest.TestUtil;
@@ -29,24 +28,10 @@ class CoursesTest {
         Courses courses = getCoursesRandomSampleGenerator();
         Category categoryBack = getCategoryRandomSampleGenerator();
 
-        courses.setCategoryId(categoryBack);
+        courses.setCategory(categoryBack);
         assertThat(courses.getCategory()).isEqualTo(categoryBack);
 
-        courses.categoryId(null);
+        courses.category(null);
         assertThat(courses.getCategory()).isNull();
-    }
-
-    @Test
-    void ordersTest() throws Exception {
-        Courses courses = getCoursesRandomSampleGenerator();
-        Orders ordersBack = getOrdersRandomSampleGenerator();
-
-        courses.setOrders(ordersBack);
-        assertThat(courses.getOrders()).isEqualTo(ordersBack);
-        assertThat(ordersBack.getCourseId()).isEqualTo(courses);
-
-        courses.orders(null);
-        assertThat(courses.getOrders()).isNull();
-        assertThat(ordersBack.getCourseId()).isNull();
     }
 }
