@@ -10,6 +10,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -53,6 +55,7 @@ public class OrdersResource {
         if (orders.getId() != null) {
             throw new BadRequestAlertException("A new orders cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        orders.setUuid(UUID.randomUUID().toString());
         Orders result = ordersRepository.save(orders);
         return ResponseEntity
             .created(new URI("/api/orders/" + result.getId()))

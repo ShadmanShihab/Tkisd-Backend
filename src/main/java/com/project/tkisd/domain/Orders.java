@@ -42,7 +42,7 @@ public class Orders implements Serializable {
     private Courses courses;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
