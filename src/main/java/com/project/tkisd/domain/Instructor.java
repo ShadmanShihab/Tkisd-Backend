@@ -38,6 +38,9 @@ public class Instructor implements Serializable {
     @Column(name = "grade")
     private Integer grade;
 
+    @Column(name = "uuid", nullable = false)
+    private String uuid;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
@@ -121,6 +124,19 @@ public class Instructor implements Serializable {
 
     public void setGrade(Integer grade) {
         this.grade = grade;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public Instructor uuid(String uuid) {
+        this.setUuid(uuid);
+        return this;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public User getUser() {

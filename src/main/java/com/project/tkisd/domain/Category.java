@@ -3,6 +3,8 @@ package com.project.tkisd.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.util.UUID;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -26,6 +28,8 @@ public class Category implements Serializable {
     @Column(name = "category_name", nullable = false)
     private String categoryName;
 
+    @Column(name = "uuid", nullable = false)
+    private String uuid;
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -52,6 +56,19 @@ public class Category implements Serializable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public Category uuid(String uuid) {
+        this.setUuid(uuid);
+        return this;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

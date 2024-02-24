@@ -28,6 +28,9 @@ public class Orders implements Serializable {
     @Column(name = "amount", nullable = false)
     private Double amount;
 
+    @Column(name = "uuid", nullable = false)
+    private String uuid;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "trx_type", nullable = false)
@@ -68,6 +71,19 @@ public class Orders implements Serializable {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public Orders uuid(String uuid) {
+        this.setUuid(uuid);
+        return this;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public TrxType getTrxType() {

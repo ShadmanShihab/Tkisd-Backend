@@ -32,6 +32,9 @@
             <column name="category_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -59,6 +62,7 @@
             <column name="number_of_classes" type="numeric"/>
             <column name="total_duration" type="numeric"/>
             <column name="category_id" type="numeric"/>
+            <column name="uuid" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

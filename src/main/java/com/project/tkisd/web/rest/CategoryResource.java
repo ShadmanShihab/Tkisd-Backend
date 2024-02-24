@@ -10,6 +10,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -53,6 +55,7 @@ public class CategoryResource {
         if (category.getId() != null) {
             throw new BadRequestAlertException("A new category cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        category.setUuid(UUID.randomUUID().toString());
         Category result = categoryRepository.save(category);
         return ResponseEntity
             .created(new URI("/api/categories/" + result.getId()))

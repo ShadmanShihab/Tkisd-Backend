@@ -42,6 +42,9 @@ public class Courses implements Serializable {
     @Column(name = "total_duration", nullable = false)
     private Long totalDuration;
 
+    @Column(name = "uuid", nullable = false)
+    private String uuid;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
@@ -124,6 +127,19 @@ public class Courses implements Serializable {
 
     public void setTotalDuration(Long totalDuration) {
         this.totalDuration = totalDuration;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public Courses uuid(String uuid) {
+        this.setUuid(uuid);
+        return this;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Category getCategory() {
